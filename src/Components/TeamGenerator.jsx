@@ -1,4 +1,4 @@
-// src/Components/TeamGenerator.jsx - FIXED VERSION
+// src/Components/TeamGenerator.jsx - SECTION 2 DISABLED
 import React, { useState, useEffect, useCallback } from "react";
 import { TabView, TabPanel } from "primereact/tabview";
 import { Chips } from "primereact/chips";
@@ -7,60 +7,51 @@ import { Card } from "primereact/card";
 
 const TeamGenerator = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [players, setPlayers] = useState([]); // Start empty
+  const [players, setPlayers] = useState([]);
   const [teams, setTeams] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false); // NEW: Loading state
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // FIXED: Load from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem("badmintonPlayers");
-    if (saved) {
+    const savedPlayers = localStorage.getItem("players");
+    if (savedPlayers) {
       try {
-        const parsedPlayers = JSON.parse(saved);
-        setPlayers(parsedPlayers);
+        setPlayers(JSON.parse(savedPlayers));
       } catch (error) {
-        console.error("localStorage parse error:", error);
-        setPlayers([]);
+        console.error("Load players error:", error);
       }
-    } else {
-      setPlayers([]);
     }
     setIsLoaded(true);
-  }, []); // Only runs once on mount
+  }, []);
 
-  // Save to localStorage whenever players change (AFTER loaded)
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem("badmintonPlayers", JSON.stringify(players));
+      localStorage.setItem("players", JSON.stringify(players));
     }
   }, [players, isLoaded]);
 
-  // Fisher-Yates Shuffle EXPLAINED ↓
   const shuffleArray = useCallback((array) => {
-    const shuffled = [...array]; // Copy original array
-    // Walk array BACKWARDS (i = last index to 1)
+    const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
-      // Pick random index j from 0 to i (inclusive)
       const j = Math.floor(Math.random() * (i + 1));
-      // SWAP: shuffled[i] ↔ shuffled[j]
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
   }, []);
 
   const generateTeams = useCallback(() => {
-    if (players.length === 0 || players.length % 2 !== 0) return;
-
+    if (players.length === 0 || players.length % 2 !== 0) {
+      alert("Need even number of players!");
+      return;
+    }
     const shuffledPlayers = shuffleArray(players);
     const newTeams = [];
-
     for (let i = 0; i < shuffledPlayers.length; i += 2) {
       newTeams.push({
         id: Math.floor(i / 2) + 1,
         players: [shuffledPlayers[i], shuffledPlayers[i + 1]],
+        type: "random",
       });
     }
-
     setTeams(newTeams);
   }, [players, shuffleArray]);
 
@@ -71,22 +62,15 @@ const TeamGenerator = () => {
 
   const isReadyToGenerate = players.length > 0 && players.length % 2 === 0;
 
-  // Show loading if not ready
-  if (!isLoaded) {
-    return <div>Loading players...</div>;
-  }
+  if (!isLoaded) return <div>Loading...</div>;
 
-  // Rest of your JSX stays EXACTLY the same...
   return (
     <div className="team-generator">
-      {/* Your existing JSX - no changes needed */}
       <div className="container">
         <div className="content">
           <div className="section">
-            <h2 className="section-title">Generate Teams</h2>
-            <p className="section-desc">
-              Add players below and click Generate for random doubles teams
-            </p>
+            <h2 className="section-title">Team Generator</h2>
+            <p className="section-desc">{players.length} players ready</p>
           </div>
 
           <div className="tab-container">
@@ -95,11 +79,14 @@ const TeamGenerator = () => {
               onTabChange={(e) => setActiveIndex(e.index)}
               className="team-tabview"
             >
-              <TabPanel header="Random Teams" leftIcon="pi pi-random">
+              <TabPanel header="🎲 Random Teams" leftIcon="pi pi-random">
+                <div className="tab-intro">
+                  Pure random doubles pairing - perfect for casual play
+                </div>
                 <div className="tab-panel-content">
                   <div className="input-section">
                     <label className="input-label">
-                      Club Members ({players.length})
+                      Players ({players.length})
                     </label>
                     <Chips
                       value={players}
@@ -119,7 +106,6 @@ const TeamGenerator = () => {
                       </div>
                     )}
                   </div>
-
                   <div className="action-buttons">
                     <Button
                       label="Clear All"
@@ -141,11 +127,12 @@ const TeamGenerator = () => {
                       className="generate-btn"
                     />
                   </div>
-
-                  {teams.length > 0 && (
+                  {teams.length > 0 && teams[0]?.type === "random" && (
                     <div className="results-section">
                       <Card className="teams-card">
-                        <h3 className="results-title">🎾 Generated Teams</h3>
+                        <h3 className="results-title">
+                          🎲 Random Teams Generated
+                        </h3>
                         <div className="teams-grid">
                           {teams.map((team) => (
                             <div key={team.id} className="team-card">
@@ -155,11 +142,8 @@ const TeamGenerator = () => {
                                 </span>
                               </div>
                               <div className="team-players">
-                                {team.players.map((player, idx) => (
-                                  <div
-                                    key={`${team.id}-${player}`}
-                                    className="player-tag"
-                                  >
+                                {team.players.map((player) => (
+                                  <div key={player} className="player-tag">
                                     {player}
                                   </div>
                                 ))}
@@ -174,14 +158,23 @@ const TeamGenerator = () => {
               </TabPanel>
 
               <TabPanel
-                header="Balanced Teams"
+                header="⚖️ Balanced Teams (Coming Soon)"
                 leftIcon="pi pi-balance-scale"
                 disabled
               >
                 <div className="coming-soon">
                   <div className="card-icon">⚖️</div>
                   <h3>Balanced Teams</h3>
-                  <p>Good + Average player pairing in next iteration</p>
+                  <p>1 Good (A) + 1 Average (B) per team</p>
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      color: "#718096",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    Coming in next update - stay tuned!
+                  </p>
                 </div>
               </TabPanel>
             </TabView>

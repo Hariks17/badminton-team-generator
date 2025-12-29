@@ -172,8 +172,10 @@ body {
   opacity: 0.8;
 }
 
+/* COMPLETE TEAM GENERATOR CSS SECTION - COPY PASTE */
+
 /* ========================================
-   TEAM GENERATOR - TABS & CHIPS (FIXED)
+   TEAM GENERATOR - TABS & CHIPS (PERFECT)
 ======================================== */
 .tab-container {
   width: 100%;
@@ -220,6 +222,17 @@ body {
   border: none !important;
 }
 
+.tab-intro {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  color: #2b6cb0;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 .tab-panel-content {
   width: 100%;
 }
@@ -237,7 +250,7 @@ body {
   font-size: 1.125rem;
 }
 
-/* COMPLETE CHIPS SECTION - PERFECT TEXT + X POSITIONING */
+/* PERFECT CHIPS - TIGHTER WIDTH, NO EXTRA SPACE */
 .player-chips {
   width: 100% !important;
   max-width: 100%;
@@ -250,7 +263,7 @@ body {
 .player-chips .p-chips-multiple-container {
   width: 100% !important;
   min-height: 60px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.25rem;
   border: 2px solid #e2e8f0;
   border-radius: 16px;
   font-size: 1rem;
@@ -259,20 +272,20 @@ body {
 }
 
 .player-chips .p-chips-token {
-  padding: 0.5rem 2.5rem 0.5rem 1rem !important;
-  margin: 0 0.75rem 0.5rem 0 !important;
-  max-width: calc(100% - 3rem) !important;
+  padding: 0.5rem 2rem 0.5rem 1rem !important; /* TIGHTER - less right padding */
+  margin: 0 0.5rem 0.5rem 0 !important;
+  max-width: calc(100% - 2.5rem) !important;
 }
 
 .player-chips .p-chips-token-label {
-  padding-right: 1rem !important;
+  padding-right: 0.75rem !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .player-chips .p-chips-token-icon {
-  right: 0.75rem !important;
+  right: 0.5rem !important;
   margin-right: 0 !important;
 }
 
@@ -419,6 +432,79 @@ body {
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
 }
 
+/* Balanced specific styles */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #f8f9ff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.player-name {
+  flex: 1;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.skill-dropdown {
+  min-width: 120px;
+}
+
+.skill-count {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.skill-count span {
+  padding: 0.5rem 1rem;
+  background: #f0f9ff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.skill-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-left: 0.75rem;
+}
+
+.skill-badge.A {
+  background: #fed7d7;
+  color: #c53030;
+}
+.skill-badge.B {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.balanced .team-number {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.team-card.balanced {
+  border-left: 6px solid #48bb78;
+}
+
 .coming-soon {
   text-align: center;
   padding: 4rem 3rem;
@@ -430,13 +516,11 @@ body {
   font-size: 4.5rem;
   margin-bottom: 2rem;
 }
-
 .coming-soon h3 {
   font-size: 2rem;
   color: #2d3748;
   margin-bottom: 1rem;
 }
-
 .coming-soon p {
   color: #718096;
   font-size: 1.2rem;
