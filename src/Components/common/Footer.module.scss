@@ -1,0 +1,23 @@
+.footer {
+  background: $bg-light;
+  border-top: $border-subtle;
+  padding: $spacing-lg $spacing-lg;
+  margin-top: $spacing-3xl;
+}
+
+.footerContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  text-align: center;
+
+  p {
+    font-size: $font-size-sm;
+    color: $text-tertiary;
+    margin-bottom: $spacing-xs;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,9 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "primereact/resources/themes/lara-light-indigo/theme.css"; // theme
-import "primereact/resources/primereact.min.css"; // core
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import "./index.css";
+import "primeflex/primeflex.css"; // utility classes
+import "./styles/globals.scss"; // SCSS entry
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(

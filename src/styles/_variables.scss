@@ -1,0 +1,86 @@
+// ========================================
+// PROFESSIONAL COLOR PALETTE
+// ========================================
+
+// Primary Accent
+$primary: #667eea;
+$primary-hover: #5568d3;
+$primary-light: #f0f4ff;
+
+// Neutral Colors (Professional grays)
+$gray-50: #fafbfc;
+$gray-100: #f3f5f7;
+$gray-200: #e8ecf1;
+$gray-300: #d4dce8;
+$gray-400: #8b95a7;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #2d3748;
+
+// Text Colors
+$text-primary: #1a202c; // Dark charcoal
+$text-secondary: #6b7280; // Medium gray
+$text-tertiary: #9ca3af; // Light gray
+
+// Backgrounds
+$bg-white: #ffffff;
+$bg-light: #f8fafc;
+$bg-lighter: #f1f5f9;
+
+// Card background (used in multiple components)
+$card-bg: #ffffff;
+
+// Semantic Colors
+$success: #10b981;
+$warning: #f59e0b;
+$danger: #ef4444;
+$info: #3b82f6;
+
+// Shadows (Professional, subtle)
+$shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+// Backwards-compatible aliases for old code
+$shadow-soft: $shadow-sm; // old name used in header/footer/cards
+
+// Borders
+$border-light: 1px solid $gray-200;
+$border-subtle: 1px solid $gray-100;
+
+// Spacing (consistent rhythm)
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 3rem; // 48px
+$spacing-3xl: 4rem; // 64px;
+
+// Radius (minimal, professional)
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+
+// Typography
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  sans-serif;
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-base: 1rem; // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.5rem; // 24px
+$font-size-2xl: 2rem; // 32px
+$font-size-3xl: 2.5rem; // 40px;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;

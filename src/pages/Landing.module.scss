@@ -1,0 +1,374 @@
+.landing {
+  width: 100%;
+}
+
+// ========================================
+// HERO SECTION
+// ========================================
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: $spacing-3xl $spacing-lg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $primary-light;
+  border-radius: $radius-lg;
+  color: $primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  width: fit-content;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+
+  span {
+    color: $primary;
+  }
+}
+
+.heroDesc {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  line-height: $line-height-relaxed;
+  max-width: 500px;
+}
+
+.heroCTA {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.ctaPrimary {
+  background: $primary !important;
+  color: white !important;
+  border: none !important;
+  padding: $spacing-md $spacing-xl !important;
+  border-radius: $radius-lg !important;
+  font-weight: $font-weight-semibold !important;
+  font-size: $font-size-base !important;
+  box-shadow: $shadow-md !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: $primary-hover !important;
+    box-shadow: $shadow-lg !important;
+    transform: translateY(-1px);
+  }
+}
+
+.ctaSecondary {
+  color: $text-secondary !important;
+  padding: $spacing-md $spacing-xl !important;
+  border-radius: $radius-lg !important;
+  font-weight: $font-weight-semibold !important;
+  font-size: $font-size-base !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    color: $primary !important;
+    background: $primary-light !important;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-2xl;
+  margin-top: $spacing-2xl;
+  padding-top: $spacing-2xl;
+  border-top: $border-subtle;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.statNumber {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $primary;
+}
+
+.statLabel {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  font-weight: $font-weight-medium;
+}
+
+// ========================================
+// HERO VISUAL (Right side demo)
+// ========================================
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    margin-top: $spacing-lg;
+  }
+}
+
+.heroCard {
+  background: $bg-white;
+  border: $border-light;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $shadow-md;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.heroCardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.heroCardLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $text-tertiary;
+}
+
+.heroCardTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+.teamDemo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.teamRow {
+  padding: $spacing-md;
+  border-radius: $radius-lg;
+  background: $bg-light;
+  border: 1px solid $gray-200;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.teamMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teamName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+.teamTag {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 999px;
+  background: $bg-white;
+  border: 1px solid $gray-200;
+  color: $text-secondary;
+}
+
+.playerChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.playerChip {
+  padding: $spacing-xs $spacing-md;
+  border-radius: 999px;
+  background: $bg-white;
+  border: 1px solid $gray-200;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+}
+
+.shuffleBtn {
+  width: 100%;
+  padding: $spacing-md;
+  background: $bg-white;
+  color: $primary;
+  border-radius: $radius-lg;
+  border: 1px solid $gray-200;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  transition: all 0.2s ease;
+
+  i {
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    background: $primary-light;
+    border-color: $primary;
+    color: $primary;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+}
+
+// ========================================
+// FEATURES SECTION
+// ========================================
+.features {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: $spacing-3xl $spacing-lg;
+}
+
+.featureHeader {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+  }
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-2xl;
+}
+
+.featureCard {
+  background: $bg-white;
+  border: $border-light;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $shadow-sm;
+  transition: all 0.2s ease;
+  text-align: center;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+
+  h3 {
+    margin: $spacing-lg 0 $spacing-md;
+    font-size: $font-size-lg;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+}
+
+// ========================================
+// CTA SECTION
+// ========================================
+.cta {
+  max-width: 1280px;
+  margin: 0 auto $spacing-3xl;
+  padding: $spacing-3xl $spacing-lg;
+  text-align: center;
+  background: $bg-light;
+  border: $border-subtle;
+  border-radius: $radius-xl;
+
+  h2 {
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-xl;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.ctaBig {
+  background: $primary !important;
+  color: white !important;
+  border: none !important;
+  padding: $spacing-md $spacing-xl !important;
+  border-radius: $radius-lg !important;
+  font-weight: $font-weight-semibold !important;
+  font-size: $font-size-lg !important;
+  box-shadow: $shadow-md !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: $primary-hover !important;
+    box-shadow: $shadow-lg !important;
+    transform: translateY(-2px);
+  }
+}

@@ -1,0 +1,181 @@
+@use "../../styles/variables" as *;
+
+.header {
+  background: $card-bg;
+  backdrop-filter: blur(12px);
+  box-shadow: $shadow-soft;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid $gray-200;
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  font-size: 1.75rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.desktopNav {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: $text-secondary;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  i {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    color: $primary;
+    background: rgba(102, 126, 234, 0.08);
+  }
+
+  &.active {
+    color: $primary;
+    background: rgba(102, 126, 234, 0.14);
+    font-weight: 600;
+  }
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.loginBtn {
+  color: $text-secondary !important;
+
+  &:hover {
+    color: $primary !important;
+  }
+}
+
+.signupBtn {
+  background: $primary !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  transition: background 0.2s ease !important, box-shadow 0.2s ease !important;
+
+  &:hover {
+    background: $primary-hover !important;
+    box-shadow: $shadow-sm !important;
+  }
+}
+
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: $text-primary;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem 2rem;
+  border-top: 1px solid $gray-200;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: $text-secondary;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
+    color: $primary;
+    background: rgba(102, 126, 234, 0.08);
+  }
+}
+
+.mobileAuthButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid $gray-200;
+}

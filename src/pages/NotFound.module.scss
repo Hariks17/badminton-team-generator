@@ -1,0 +1,22 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $spacing-3xl $spacing-lg;
+  min-height: 60vh;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: $font-weight-bold;
+    color: $primary;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-2xl;
+  }
+}
